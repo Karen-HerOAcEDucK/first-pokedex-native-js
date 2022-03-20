@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Noto+Sans&family=Ubuntu&display=swap" rel="stylesheet">
+        
+        <!-- My CSS -->
+		<link rel="stylesheet" href="css/style.css">
+		
+        <title>My Pokédex</title>
+    </head>
+    <body>
+		
+        <div>
+            <nav class="navbar navbar-dark bg-dark">
+                <div class="container">
+                    <a class="navbar-brand" href="#">
+                        <img src="images/pokemon-3418266_960_720.png" class="BarTag" alt="" width="35" height="35">PokéDex
+                    </a>
+                </div>
+            </nav>
+            
+            <div class = "container">
+                <div class="divHeader">
+                    <h1 class="titlePoke">PokéDex</h1>
+                    <p>Consulte qualquer Pokemon</p>
+                    <button type="submit" class="btn btn-info btnCunsult" id="btnPokeSearch">Consultar</button>
+                </div>
+                
+                <div class="divTablePoke">
+                    <table class = "table table-striped tablePoke" id="tablePokedex">
+                        <thead>
+                            <th scope="col">Id Pokedex</th>
+                            <th scope="col">Nome do Pokemon</th>
+                            <th scope="col">Imagem Pokemon</th>
+                            <th scope="col">Tipo do Pokemon</th>
+                            <th scope="col">Altura</th>
+                        </thead>
+                        <tbody id="bodyTable"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+		
+        <script>
+            /*Fetch para consumir a PokéAPI*/
+            const getTbodyEl = document.getElementById('bodyTable')
+            const btnSearch = document.getElementById('btnPokeSearch')
+			
+            btnSearch.addEventListener('click', fetchPokemon)
+			
+            function fetchPokemon(){
+                const pokeNew = (id) => `https://pokeapi.co/api/v2/pokemon/${id}`
+                const newPokemons = []
+				
+                for(let i = 1; i <= 150; i++){
+                    newPokemons.push(fetch(pokeNew(i))
+                                        .then(response => response.json()))
+                }
+				
+                Promise.all(newPokemons)
+                    .then(altPoke => {
+                        altPoke.forEach(element => {
+                                        	newLine(element)
+                                        });
+                        btnSearch.removeEventListener('click', fetchPokemon)
+                        })
+            }
+			
+            function newLine(pokemon){
+                //console.log(pokemon)
+                
+                //Criando os elementos HTML
+                const line = document.createElement('tr')
+                const idPoke = document.createElement('th')
+                const namePoke = document.createElement('td')
+                const altuPoke = document.createElement('td')
+                const typePoke = document.createElement('td')
+                const imgPoke = document.createElement('img')
+                const divType = document.createElement('div')
+                const divType2 = document.createElement('div')
+                const divImage = document.createElement('div')
+                const divPType = document.createElement('div')
+                const divFlex = document.createElement('div')
+                const pType = document.createElement('p')
+                const pType2 = document.createElement('p')
+				
+                const idPokeText = document.createTextNode(pokemon.id)
+                const namePokeText = document.createTextNode(pokemon.name)
+                const altuPokeText = document.createTextNode(pokemon.height)
+                
+                //Veirficando se o pokemon tem mais de um tipo para fazer a criação do elemento type2
+                let pTypeText
+                let pTypeText2
+                
+                if(pokemon.types[0] && pokemon.types[1]){
+                    pTypeText = document.createTextNode(pokemon.types['0'].type.name)
+                    pTypeText2 = document.createTextNode(pokemon.types['1'].type.name)
+                    divType2.appendChild(pType2)
+                    pType2.appendChild(pTypeText2)
+                    divFlex.appendChild(divType2)
+                    typePoke.appendChild(divFlex)
+                    divType2.setAttribute('class', `${pokemon.types['1'].type.name}`)
+                } else{
+                    pTypeText = document.createTextNode(pokemon.types['0'].type.name)
+                }
+
+                console.log(pType);
+                
+                //Atribuindo o atributp SRC, na tag img
+                imgPoke.setAttribute('src', pokemon.sprites.front_default)
+                idPoke.setAttribute('scope', "row")
+                divType.setAttribute('class', `${pokemon.types['0'].type.name}`)
+                divFlex.setAttribute('class', "typePokeDiv")
+                divPType.setAttribute('class', "pTypeDiv")
+                
+                //Vinculando um objeto a outro objeto
+                idPoke.appendChild(idPokeText)
+                namePoke.appendChild(namePokeText)
+                altuPoke.appendChild(altuPokeText)
+                pType.appendChild(pTypeText)
+                divFlex.appendChild(divPType)
+                divType.appendChild(pType)
+                divPType.appendChild(divType)
+                typePoke.appendChild(divFlex)
+                divImage.appendChild(imgPoke)
+                
+                //Criando elementos a partir da verificação se o pokemon tem mais de um tipo
+                
+				
+                //Vinculando os elementos a Tabela
+                line.appendChild(idPoke)
+                line.appendChild(namePoke)
+                line.appendChild(divImage)
+                line.appendChild(typePoke)
+                line.appendChild(altuPoke)
+                
+                getTbodyEl.appendChild(line)
+            }
+        </script>
+    </body>
+</html>

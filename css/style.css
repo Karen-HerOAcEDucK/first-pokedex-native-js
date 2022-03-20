@@ -1,0 +1,242 @@
+*{
+    font-family: 'Noto Sans', sans-serif;
+}
+
+body {
+	background: #ffffff;
+}
+
+.divHeader{
+    display: block; 
+    flex-direction: row;
+    margin: 20px;  
+}
+
+.tablePoke{
+    vertical-align: middle;
+    margin-top: 40px;
+    font-size: 17px;
+}
+
+.titlePoke{
+    font-family: 'Fredoka One', cursive;
+}
+
+.BarTag{
+    padding: 5px;
+}
+
+.typePokeDiv{
+    display: flex;
+}
+
+.pTypeDiv{
+    padding-left: 10px;
+}
+
+.queryDiv{
+    display: flex;
+}
+
+.inputDiv{
+    width: 400px;
+    margin-right: 15px;
+}
+
+.bug{
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #ddb883;
+    color: white;
+    border-radius: 25px;
+    text-align: center;
+    font-style: oblique;
+    width: 70px;
+    height: 25px;
+}
+
+.dark{
+    font-family: 'Ubuntu', sans-serif;
+    background-color: rgb(41, 40, 40);
+    color: white;
+    border-radius: 25px;
+    text-align: center;
+    font-style: oblique;
+    width: 70px;
+    height: 25px;
+}
+
+.dragon{
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #a8c9f7;
+    color: white;
+    border-radius: 25px;
+    text-align: center;
+    font-style: oblique;
+    width: 70px;
+    height: 25px;
+}
+
+.electric{
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #ffe561;
+    color: white;
+    border-radius: 25px;
+    text-align: center;
+    font-style: oblique;
+    width: 70px;
+    height: 25px;
+}
+
+.fairy{
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #f5bfff;
+    color: white;
+    border-radius: 25px;
+    text-align: center;
+    font-style: oblique;
+    width: 70px;
+    height: 25px;
+}
+
+.fighting{
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #d3c5aa;
+    color: white;
+    border-radius: 25px;
+    text-align: center;
+    font-style: oblique;
+    width: 70px;
+    height: 25px;
+}
+
+.fire{
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #ff783a;
+    color: white;
+    border-radius: 25px;
+    text-align: center;
+    font-style: oblique;
+    width: 70px;
+    height: 25px;
+}
+
+.flying{
+    font-family: 'Ubuntu', sans-serif;
+    background-color: rgb(118, 191, 209);
+    color: white;
+    border-radius: 25px;
+    text-align: center;
+    font-style: oblique;
+    width: 70px;
+    height: 25px;
+}
+
+.ghost{
+    font-family: 'Ubuntu', sans-serif;
+    background-color: rgb(170, 170, 170);
+    color: white;
+    border-radius: 25px;
+    text-align: center;
+    font-style: oblique;
+    width: 70px;
+    height: 25px;
+}
+
+.grass{
+    font-family: 'Ubuntu', sans-serif;
+    background-color: rgb(63, 204, 28);
+    color: white;
+    border-radius: 25px;
+    text-align: center;
+    font-style: oblique;
+    width: 70px;
+    height: 25px;
+}
+
+.ground{
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #68523b;
+    color: white;
+    border-radius: 25px;
+    text-align: center;
+    font-style: oblique;
+    width: 70px;
+    height: 25px;
+}
+
+.ice{
+    font-family: 'Ubuntu', sans-serif;
+    background-color: rgb(183, 255, 249);
+    color: black;
+    border-radius: 25px;
+    text-align: center;
+    font-style: oblique;
+    width: 70px;
+    height: 25px;
+}
+
+.normal{
+    font-family: 'Ubuntu', sans-serif;
+    background-color: rgb(124, 117, 108);
+    color: white;
+    border-radius: 25px;
+    text-align: center;
+    font-style: oblique;
+    width: 70px;
+    height: 25px;
+}
+
+.poison{
+    font-family: 'Ubuntu', sans-serif;
+    background-color: rgb(124, 61, 175);
+    color: white;
+    border-radius: 25px;
+    text-align: center;
+    font-style: oblique;
+    width: 70px;
+    height: 25px;
+}
+
+.psychic{
+    font-family: 'Ubuntu', sans-serif;
+    background-color: rgb(255, 100, 229);
+    color: white;
+    border-radius: 25px;
+    text-align: center;
+    font-style: oblique;
+    width: 70px;
+    height: 25px;
+}
+
+.rock{
+    font-family: 'Ubuntu', sans-serif;
+    background-color: rgb(59, 56, 56);
+    color: white;
+    border-radius: 25px;
+    text-align: center;
+    font-style: oblique;
+    width: 70px;
+    height: 25px;
+}
+
+.steel{
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #a7a7a7;
+    color: white;
+    border-radius: 25px;
+    text-align: center;
+    font-style: oblique;
+    width: 70px;
+    height: 25px;
+}
+
+.water{
+    font-family: 'Ubuntu', sans-serif;
+    background-color: rgb(31, 129, 241);
+    color: white;
+    border-radius: 25px;
+    text-align: center;
+    font-style: oblique;
+    width: 70px;
+    height: 25px;
+}
